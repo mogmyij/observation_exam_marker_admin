@@ -6,20 +6,20 @@ import { JsxElement } from "typescript";
 import { Header } from "./components/ui/Header";
 
 function App() {
-	const [table, setTable] = useState<ReactNode | null>(null);
+	const [tableData, setTableData] = useState<ReactNode | null>(null);
 
 	useEffect(() => {
 		async function fetchData() {
 			const table = await DemoPage();
-			setTable(table);
+			setTableData(table);
 		}
 		fetchData();
 	}, []);
 
 	return (
-		<div className="App dark bg-background  text-primary h-screen">
+		<div className="App dark bg-background  text-primary min-h-screen">
 			<Header />
-			{table}
+			{tableData}
 		</div>
 	);
 }
